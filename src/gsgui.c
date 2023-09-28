@@ -41,6 +41,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <unistd.h>
 
 #include "libsx.h"
 #if USEFREQ == 1
@@ -435,8 +437,7 @@ GetFontIndex(char *fontname)  /* fontname is a short name
  *
  */
 
-int
-LoadUserColor(char *name,         /* a short name used by the script */ 
+int LoadUserColor(char *name,         /* a short name used by the script */ 
               char *colorname)    /* the actual X11 name used for the color */
 {
    int color;
@@ -457,7 +458,7 @@ LoadUserColor(char *name,         /* a short name used by the script */
       UserColors[4].color = BLUE;
       UserColors[5].color = YELLOW;
       icolors = 5;
-      if(!name) return;
+      if(!name) return -1;
    }
 
    icolors++;

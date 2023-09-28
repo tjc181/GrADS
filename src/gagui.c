@@ -54,10 +54,8 @@
 
 #include <time.h>
 
-#include "libsx.h"		
-#if USEFREQ == 1
+#include "libsx.h"
 #include "freq.h"	
-#endif
 #include "grads.h"
 #include "gx.h"
 
@@ -92,6 +90,9 @@ static Widget Cmd_window, CmdExpr_window, CmdList_window, CmdStr_window;
  * This is the GaGUI entry point. Return is thru the quit button.
  *
  */
+
+/* Declare Default_GUI() before use */
+int Default_GUI(int argc, char **argv, void *data);
 
 int gagui_main(int argc, char **argv)
 {
@@ -209,8 +210,7 @@ char *dirname(char *str)
  *  Default_GUI() - sets up default widget set.
  */
 
-int 
-Default_GUI(int argc, char **argv, void *data)
+int Default_GUI(int argc, char **argv, void *data)
 {
   Widget  root, file, print, options, quit, reinit,prompt;
   Widget  clear, hold, prev, play, next, dim, var;
