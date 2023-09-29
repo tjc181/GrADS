@@ -59,7 +59,7 @@
 #include "grads.h"
 #include "gx.h"
 
-extern struct gacmn gcmn;
+struct gacmn gcmn;
 
 #include "gagui.h"
 
